@@ -95,7 +95,7 @@ module tt_um_ziyadedher_trash (
                 end
                 3'b010 : begin
                     case (in[15:12])
-                        4'b0000 : alu alu_inst(.clk(clk), .opcode(in[11:8]), .a(r0[7:4]), .b(r0[3:0]), .res(r1));
+                        4'b0000 : alu alu_inst(clk, in[11:8], r0[7:4], r0[3:0], r1);
                     endcase
                 end
                 // TODO: the rest
