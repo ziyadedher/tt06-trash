@@ -24,7 +24,7 @@ module tt_um_ziyadedher_trash (
 
     // 8 bytes of program memory.
     // This can be addressed by 3 bits, which we have a program counter for.
-    reg [63:0] program = 0;
+    reg [63:0] prog_data = 0;
     reg [2:0] pc = 0;
 
     // 16-byte memory hell yeah.
@@ -53,7 +53,7 @@ module tt_um_ziyadedher_trash (
         if (reset) begin
             pc <= 0;
         end else if (! prog) begin
-            program[pc*8 +: 8] <= in[15:8];
+            prog_data[pc*8 +: 8] <= in[15:8];
             pc <= pc + 1;
         end
     end
