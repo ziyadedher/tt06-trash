@@ -20,7 +20,7 @@ module tt_um_ziyadedher_trash (
     assign uio_out = 0;
     assign uio_oe  = 0;
 
-    wire reset = ! rst_n;
+    wire reset = !rst_n;
 
     // 8 bytes of program memory.
     // This can be addressed by 3 bits, which we have a program counter for.
@@ -53,7 +53,7 @@ module tt_um_ziyadedher_trash (
         if (reset) begin
             pc <= 0;
         end else if (! prog) begin
-            program[pc] <= in[15:1];
+            program[pc*8 +: 8] <= in[15:8];
             pc <= pc + 1;
         end
     end
@@ -95,7 +95,7 @@ module tt_um_ziyadedher_trash (
                 end
                 3'b010 : begin
                     case (in[15:12])
-                        4'b0000 : alu(.clk(clk), .opcode(in[7:4]), .a(r0[7:4]), .b(r0[3:0]), .res(r1[7:0]));
+                        4'b0000 : alu alu_inst(.clk(clk), .opcode(in[11:8]), .a(r0[7:4]), .b(r0[3:0]), .res(r1));
                     endcase
                 end
                 // TODO: the rest
@@ -113,7 +113,7 @@ module alu (
     input [3:0] opcode,
     input [3:0] a,
     input [3:0] b,
-    output [7:0] res,
+    output [7:0] res
 );
     always @(posedge clk) begin
         case (opcode)
