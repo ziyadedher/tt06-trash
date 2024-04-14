@@ -35,7 +35,7 @@ module tt_um_ziyadedher_trash (
     // We can reference a specfic register using 2 bits.
     reg [7:0] r0, r1, r2, r3;
 
-    assign in = {ui_in, uio_in};
+    wire [15:0] in = {ui_in, uio_in};
 
     // Programming mode.
     // When this is set to 0, the device is in programming mode.
