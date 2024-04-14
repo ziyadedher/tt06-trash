@@ -84,7 +84,7 @@ module tt_um_ziyadedher_trash (
         end else if (prog) begin
             case (in[3:1])
                 4'b000 : begin 
-                end;
+                end
                 4'b001 : begin
                     case (in[7:4])
                         2'b0000 : r0 <= in[15:8];
@@ -92,12 +92,12 @@ module tt_um_ziyadedher_trash (
                         2'b0010 : r2 <= in[15:8];
                         2'b0011 : r3 <= in[15:8];
                     endcase
-                end;
+                end
                 4'b010 : begin
                     case (in[15:12])
                         2'b0000 : alu(.clk(clk), .opcode(in[7:4]), .a(r0[7:4]), .b(r0[3:0]), .res(r1[7:0]));
                     endcase
-                end;
+                end
                 // TODO: the rest
                 default;
             endcase
