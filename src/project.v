@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2024 Clive Chan
+ * Copyright (c) 2024 Ziyad Edher
  * SPDX-License-Identifier: MIT
  */
 
 `define default_netname none
 
-module tt_um_cchan_fp8_multiplier (
+module tt_um_ziyadedher_trash (
     input  wire [7:0] ui_in,    // Dedicated inputs
     output wire [7:0] uo_out,   // Dedicated outputs
     input  wire [7:0] uio_in,   // IOs: Input path
