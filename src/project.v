@@ -20,7 +20,7 @@ module tt_um_ziyadedher_trash (
     assign uio_out = 0;
     assign uio_oe  = 0;
 
-    wire reset = !rst_n;
+    wire reset = ~rst_n;
 
     // 8 bytes of program memory.
     // This can be addressed by 3 bits, which we have a program counter for.
