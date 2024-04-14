@@ -24,12 +24,12 @@ module tt_um_ziyadedher_trash (
 
     // 8 bytes of program memory.
     // This can be addressed by 3 bits, which we have a program counter for.
-    reg [7:0] program [7:0];
+    reg [63:0] program;
     reg [2:0] pc = 0;
 
     // 16-byte memory hell yeah.
     // This can be addressed by 4 bits!
-    reg [7:0] memory [15:0];
+    reg [127:0] memory;
 
     // 4 8-bit registers.
     // We can reference a specfic register using 2 bits.
